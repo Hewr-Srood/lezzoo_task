@@ -1,0 +1,25 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "name": "Defacto",
+      "location": "erbil",
+      "logo": "https://dfcdn.defacto.com.tr/Assets/dist/images/logo.png",
+      "cover": "https://cdn.aiidatapro.net/media/c8/73/97/t780x490/c8739759634603e28fda1315dadc612d.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nike",
+      "location": "erbil",
+      "logo": "https://cdn.logo.com/hotlink-ok/logo-social.png",
+      "cover": "https://cdn.filepicker.io/api/file/cDrXJjSrQcW98iod86wm"
+    },
+    {
+      "id": 3,
+      "name": "lacoste ",
+      "location": "suli",
+      "logo": "https://brandslogos.com/wp-content/uploads/images/large/lacoste-logo-1.png",
+      "cover": "https://retailinasia.com/wp-content/uploads/2016/09/Lacoste-Store-Retail-in-Asia.jpg"
+    }
+  ]
+}

@@ -1,73 +1,34 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
-
-import { NativeRouter, Route } from 'react-router-native';
-import colors from './configs/colors';
+import { StatusBar, SafeAreaView } from 'react-native';
 import InitScreen from './screens/InitScreen';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import StoreScreen from './screens/StoreScreen';
+import Reducers from './Redux/Reducers';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+const Stack = createStackNavigator();
+const store = createStore(Reducers);
 
 const App = () => (
-  <NativeRouter>
-    <SafeAreaView>
-      <View>
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.headerText}>Find The Best Clothes</Text>
-            <Text style={styles.headerSubText}>In your favorite store</Text>
-          </View>
-          <View style={styles.iconContainer}>
-            <View style={styles.bage}>
-              <Text style={styles.bageText}>1</Text>
-            </View>
-            <Icon size={20} name="shopping-cart" backgroundColor="#3b5998" />
-          </View>
-        </View>
-
-        <Route exact path="/" component={InitScreen} />
-      </View>
-    </SafeAreaView>
-  </NativeRouter>
+  <>
+    <Provider store={store}>
+      <StatusBar
+        backgroundColor="transparent"
+        barStyle="dark-content"
+        translucent
+      />
+      <SafeAreaView style={{ flex: 1 }}>
+        <NavigationContainer initialRouteName="home/init">
+          <Stack.Navigator headerMode="none">
+            <Stack.Screen name="Home" component={InitScreen} />
+            <Stack.Screen name="Store" component={StoreScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </Provider>
+  </>
 );
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderRadius: 15,
-    marginTop: 30,
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: colors.darkGrey,
-  },
-  headerSubText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: colors.grey,
-  },
-  iconContainer: {
-    width: 34,
-    height: 34,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.grey,
-  },
-  bage: {
-    width: 14,
-    height: 14,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    top: -5,
-    right: -5,
-    borderRadius: 500,
-    backgroundColor: colors.darkGrey,
-  },
-  bageText: {
-    fontSize: 10,
-  },
-});
+
 export default App;

@@ -12,9 +12,8 @@ import { useDispatch } from 'react-redux';
 import colors from '../configs/colors';
 import { openStore } from '../Redux/actions';
 
-const StoreCard = ({ item }) => {
+const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
-
   const navigation = useNavigation();
   return (
     <View style={styles.card}>
@@ -28,24 +27,16 @@ const StoreCard = ({ item }) => {
           <View style={styles.cover}>
             <Image
               style={styles.coverImage}
+              resizeMode="cover"
               source={{
-                uri: item.cover,
+                uri: item.image,
               }}
             />
-            <Text style={styles.title}>{item.name}</Text>
+            <Text style={styles.title}>{item.itemName}</Text>
           </View>
           <View style={styles.content}>
-            <View style={styles.logoContainer}>
-              <Image
-                style={styles.logo}
-                resizeMode="contain"
-                source={{
-                  uri: item.logo,
-                }}
-              />
-            </View>
             <View style={'wrapper'}>
-              <Text style={styles.subtitile}>{item.location}</Text>
+              <Text style={styles.subtitile}>Price: {item.price}</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -82,9 +73,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: 'bold',
-    width: 1000,
     padding: 5,
     backgroundColor: 'rgba(0,0,0,.6)',
   },
@@ -119,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StoreCard;
+export default ProductCard;

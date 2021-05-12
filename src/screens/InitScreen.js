@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, VirtualizedList, Text, Dimensions } from 'react-native';
+import { View, VirtualizedList, Dimensions } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 import Header from '../components/Header';
 import InitStyles from './InitStyles';
@@ -18,7 +18,7 @@ const InitScreen = () => {
         {stores.length !== 0 && (
           <VirtualizedList
             style={{
-              height: Dimensions.get('window').height * 0.9,
+              height: Dimensions.get('screen').height * 0.8,
             }}
             refreshing
             data={stores}

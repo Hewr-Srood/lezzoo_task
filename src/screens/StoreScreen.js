@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  VirtualizedList,
-  Dimensions,
-} from 'react-native';
+import { View, Text, VirtualizedList, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
-import colors from '../configs/colors';
 import { Picker } from '@react-native-picker/picker';
-import ProdutCard from './../components/ProductCard';
 import { v4 as uuidv4 } from 'uuid';
+import StoreStyles from './StoreStyles';
+import ProductListItem from '../components/ProductListItem';
 
 const StoreScreen = () => {
   const store = useSelector((state) => state.store);
@@ -28,24 +22,17 @@ const StoreScreen = () => {
       setItems(url.items);
     }
   }, [category]);
-  const Item = ({ item }) => {
-    return (
-      <View style={styles.item}>
-        <ProdutCard item={item[0]} />
-        {item[1] && <ProdutCard item={item[1]} />}
-      </View>
-    );
-  };
+
   return (
-    <View style={styles.storeScreen}>
+    <View style={StoreStyles.storeScreen}>
       <View
         style={{
           height: Dimensions.get('window').height * 0.33,
         }}
       >
         <Header />
-        <Text style={styles.title}>{store.name}</Text>
-        <Text style={styles.title}>Category</Text>
+        <Text style={StoreStyles.title}>{store.name}</Text>
+        <Text style={StoreStyles.title}>Category</Text>
         <Picker
           selectedValue={'hi'}
           color="blue"
@@ -71,9 +58,7 @@ const StoreScreen = () => {
             data={items}
             scrollEnabled
             initialNumToRender={4}
-            renderItem={({ item }) => {
-              return <Item item={item} />;
-            }}
+            renderItem={({ item }) => <ProductListItem item={item} />}
             getItemCount={() => Math.ceil(items.length / 2)}
             getItem={(data, i) => {
               const index = 2 * i;
@@ -87,26 +72,4 @@ const StoreScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  storeScreen: { paddingLeft: 20, paddingRight: 20 },
-  title: {
-    alignSelf: 'baseline',
-    fontSize: 20,
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  filterIconContainer: {
-    width: 100,
-    height: 50,
-    marginRight: 10,
-    backgroundColor: colors.grey,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  item: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
 export default StoreScreen;

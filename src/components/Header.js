@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../configs/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const items = useSelector((state) => state.items);
+  console.log(items);
   return (
     <View style={styles.header}>
       <View>
@@ -13,7 +16,7 @@ const Header = () => {
       <TouchableOpacity>
         <View style={styles.iconContainer}>
           <View style={styles.bage}>
-            <Text style={styles.bageText}>1</Text>
+            <Text style={styles.bageText}>{items.length.toString()}</Text>
           </View>
           <Icon size={20} name="shopping-cart" />
         </View>

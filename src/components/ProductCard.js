@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/core';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -7,23 +7,61 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  Alert,
+  Modal,
+  Pressable,
 } from 'react-native';
+import colors from './../configs/colors';
 import { useDispatch } from 'react-redux';
-import colors from '../configs/colors';
-import { openStore } from '../Redux/actions';
+import { addToBasket, openStore } from '../Redux/actions';
+import { useSelector } from 'react-redux';
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
+  const items = useSelector((state) => state.items);
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.card}>
-      <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => {
-            dispatch(openStore(item));
-            navigation.navigate('Store');
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
           }}
         >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>
+                Do you want add {item.itemName} to your basket?
+              </Text>
+              <View style={styles.buttonContainer}>
+                <Pressable
+                  style={[styles.button, styles.buttonYes]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={styles.textStyle}>No, Thanks</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.button, styles.buttonNo]}
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
+                    dispatch(addToBasket([...items, item]));
+                  }}
+                >
+                  <Text style={styles.textStyle}>Yes, Sure</Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </Modal>
+      </View>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
           <View style={styles.cover}>
             <Image
               style={styles.coverImage}
@@ -106,6 +144,53 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     alignItems: 'center',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '70%',
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonYes: {
+    backgroundColor: colors.red,
+  },
+  buttonNo: {
+    backgroundColor: colors.green,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 

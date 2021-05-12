@@ -14,6 +14,7 @@ import ProdutCard from './../components/ProductCard';
 const StoreScreen = () => {
   const store = useSelector((state) => state.store);
   const [category, setCategory] = useState('All');
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -52,9 +53,9 @@ const StoreScreen = () => {
         >
           <Picker.Item label="All" value="All" />
           <Picker.Item label="Jeans" value="Jeans" />
-          <Picker.Item label="Shirts" value="Shirts" />
-          <Picker.Item label="T-Shirts" value="T-Shirts" />
-          <Picker.Item label="Jacket" value="T-Shirts" />
+          <Picker.Item label="Shirt" value="Shirt" />
+          <Picker.Item label="T-Shirt" value="T-Shirt" />
+          <Picker.Item label="Jacket" value="Jacket" />
         </Picker>
       </View>
       {items.length !== 0 && (

@@ -25,49 +25,42 @@ const StoreScreen = () => {
 
   return (
     <View style={StoreStyles.storeScreen}>
-      <View
-        style={{
-          height: Dimensions.get('window').height * 0.33,
-        }}
-      >
-        <Header />
-        <Text style={StoreStyles.title}>{store.name}</Text>
-        <Text style={StoreStyles.title}>Category</Text>
-        <Picker
-          selectedValue={'hi'}
-          color="blue"
-          onValueChange={(val) => {
-            setCategory(val);
-          }}
-        >
-          <Picker.Item label="All" value="All" />
-          <Picker.Item label="Jeans" value="Jeans" />
-          <Picker.Item label="Shirt" value="Shirt" />
-          <Picker.Item label="T-Shirt" value="T-Shirt" />
-          <Picker.Item label="Jacket" value="Jacket" />
-        </Picker>
+      <View>
+        <Header subtitle={store.name} />
+        <View style={StoreStyles.wrapper}>
+          <Text style={StoreStyles.title}>Category</Text>
+          <Picker
+            selectedValue={'All'}
+            onValueChange={(val) => {
+              setCategory(val);
+            }}
+          >
+            <Picker.Item label="All" value="All" />
+            <Picker.Item label="Jeans" value="Jeans" />
+            <Picker.Item label="Shirt" value="Shirt" />
+            <Picker.Item label="T-Shirt" value="T-Shirt" />
+            <Picker.Item label="Jacket" value="Jacket" />
+          </Picker>
+
+          {items.length !== 0 && (
+            <VirtualizedList
+              style={StoreStyles.list}
+              showsVerticalScrollIndicator={false}
+              refreshing
+              data={items}
+              scrollEnabled
+              initialNumToRender={4}
+              renderItem={({ item }) => <ProductListItem item={item} />}
+              getItemCount={() => Math.ceil(items.length / 2)}
+              getItem={(data, i) => {
+                const index = 2 * i;
+                return [data[index], data[index + 1]];
+              }}
+              keyExtractor={uuidv4}
+            />
+          )}
+        </View>
       </View>
-      {items.length !== 0 && (
-        <>
-          <VirtualizedList
-            style={{
-              height: Dimensions.get('window').height * 0.75,
-            }}
-            showsVerticalScrollIndicator={false}
-            refreshing
-            data={items}
-            scrollEnabled
-            initialNumToRender={4}
-            renderItem={({ item }) => <ProductListItem item={item} />}
-            getItemCount={() => Math.ceil(items.length / 2)}
-            getItem={(data, i) => {
-              const index = 2 * i;
-              return [data[index], data[index + 1]];
-            }}
-            keyExtractor={uuidv4}
-          />
-        </>
-      )}
     </View>
   );
 };

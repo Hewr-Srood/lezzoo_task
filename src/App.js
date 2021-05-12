@@ -16,7 +16,7 @@ const App = () => (
   <>
     <Provider store={store}>
       <StatusBar
-        backgroundColor="transparent"
+        backgroundColor="#F2F2F2"
         barStyle="dark-content"
         translucent
       />

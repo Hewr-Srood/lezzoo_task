@@ -10,7 +10,7 @@ const Header = ({ subtitle }) => {
 
   const [disabled, setDisabled] = useState(true);
   useEffect(() => {
-    setDisabled(false);
+    items.length === 0 ? setDisabled(true) : setDisabled(false);
   }, [items]);
   const navigation = useNavigation();
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, VirtualizedList, Dimensions } from 'react-native';
+import { View, Text, VirtualizedList } from 'react-native';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
 import { Picker } from '@react-native-picker/picker';
@@ -28,9 +28,9 @@ const StoreScreen = () => {
       <View>
         <Header subtitle={store.name} />
         <View style={StoreStyles.wrapper}>
-          <Text style={StoreStyles.title}>Category</Text>
+          <Text style={StoreStyles.title}>Categories</Text>
           <Picker
-            selectedValue={'All'}
+            style={StoreStyles.selector}
             onValueChange={(val) => {
               setCategory(val);
             }}

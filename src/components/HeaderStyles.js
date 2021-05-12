@@ -25,6 +25,8 @@ const HeaderStyles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.grey,
   },
   iconContainer: {
     width: 34,

@@ -7,7 +7,8 @@ const InitStyles = StyleSheet.create({
   initHeader: {
     fontSize: 20,
     marginTop: 10,
-    marginBottom: 10,
+    // marginBottom: 10,
   },
+  container: {},
 });
 export default InitStyles;

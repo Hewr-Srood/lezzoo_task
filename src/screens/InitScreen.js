@@ -14,26 +14,25 @@ const InitScreen = () => {
   return (
     <View style={InitStyles.initScreen}>
       <Header subtitle="Stores" />
-      <View style={InitStyles.conatiner}>
-        {stores.length !== 0 && (
-          <VirtualizedList
-            style={{
-              height: Dimensions.get('screen').height * 0.8,
-            }}
-            refreshing
-            data={stores}
-            scrollEnabled
-            initialNumToRender={4}
-            renderItem={({ item }) => <StoreListItem item={item} />}
-            getItemCount={() => Math.ceil(stores.length / 2)}
-            getItem={(data, i) => {
-              const index = 2 * i;
-              return [data[index], data[index + 1]];
-            }}
-            keyExtractor={uuidv4}
-          />
-        )}
-      </View>
+      {stores.length !== 0 && (
+        <VirtualizedList
+          style={{
+            height: Dimensions.get('window').height * 0.75,
+          }}
+          refreshing
+          data={stores}
+          scrollEnabled
+          showsVerticalScrollIndicator={false}
+          initialNumToRender={4}
+          renderItem={({ item }) => <StoreListItem item={item} />}
+          getItemCount={() => Math.ceil(stores.length / 2)}
+          getItem={(data, i) => {
+            const index = 2 * i;
+            return [data[index], data[index + 1]];
+          }}
+          keyExtractor={uuidv4}
+        />
+      )}
     </View>
   );
 };

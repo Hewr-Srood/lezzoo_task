@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 import { addToBasket } from '../Redux/actions';
 import { useSelector } from 'react-redux';
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, store }) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.items);
 
@@ -50,7 +50,9 @@ const ProductCard = ({ item }) => {
                   style={[styles.button, styles.buttonNo]}
                   onPress={() => {
                     setModalVisible(!modalVisible);
-                    dispatch(addToBasket([...items, item]));
+                    dispatch(
+                      addToBasket([...items, { item: item, store: store }])
+                    );
                   }}
                 >
                   <Text style={styles.textStyle}>Yes, Sure</Text>

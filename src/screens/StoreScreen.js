@@ -15,13 +15,16 @@ const StoreScreen = () => {
 
   useEffect(() => {
     const url = require('./../data.json');
+
     if (category !== 'All') {
-      const filtered = url.items.filter((item) => item.category === category);
+      const filtered = url.items[store.name].filter(
+        (item) => item.category === category
+      );
       setItems(filtered);
     } else {
-      setItems(url.items);
+      setItems(url.items[store.name]);
     }
-  }, [category]);
+  }, [category, store.name]);
 
   return (
     <View style={StoreStyles.storeScreen}>
@@ -50,7 +53,9 @@ const StoreScreen = () => {
               data={items}
               scrollEnabled
               initialNumToRender={4}
-              renderItem={({ item }) => <ProductListItem item={item} />}
+              renderItem={({ item }) => (
+                <ProductListItem item={item} store={store.name} />
+              )}
               getItemCount={() => Math.ceil(items.length / 2)}
               getItem={(data, i) => {
                 const index = 2 * i;

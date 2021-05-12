@@ -16,7 +16,7 @@ const BasketScreen = () => {
   const items = useSelector((state) => state.items);
   const totalPrice = () =>
     items.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.price,
+      (accumulator, currentValue) => accumulator + currentValue.item.price,
       0
     );
   return (
@@ -30,9 +30,7 @@ const BasketScreen = () => {
         showsVerticalScrollIndicator={false}
         refreshing
         data={items}
-        renderItem={({ item }) => (
-          <ListItem item={item} key={item.name + item.id} />
-        )}
+        renderItem={({ item }) => <ListItem item={item} />}
         getItemCount={() => items.length}
         getItem={(data, i) => {
           return data[i];

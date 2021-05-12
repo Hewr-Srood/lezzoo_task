@@ -5,9 +5,9 @@ import colors from '../configs/colors';
 const ListItem = ({ item }) => {
   return (
     <View style={styles.contianer}>
-      <Text>{item.itemName}</Text>
+      <Text>{item.item.itemName}</Text>
       <Text>From: {item.store}</Text>
-      <Text>price: {item.price}$</Text>
+      <Text>price: {item.item.price}$</Text>
     </View>
   );
 };

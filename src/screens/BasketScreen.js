@@ -22,7 +22,7 @@ const BasketScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hi there</Text>
-      <Text style={styles.subtitle}>Youre basket list</Text>
+      <Text style={styles.subtitle}>Your basket list</Text>
       <VirtualizedList
         style={{
           height: Dimensions.get('window').height * 0.75,

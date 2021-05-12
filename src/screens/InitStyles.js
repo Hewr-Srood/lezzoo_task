@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 const InitStyles = StyleSheet.create({
   initScreen: {
     paddingLeft: 20,
@@ -9,6 +9,11 @@ const InitStyles = StyleSheet.create({
     marginTop: 10,
     // marginBottom: 10,
   },
-  container: {},
+  container: {
+    flexDirection: 'row',
+    height: Dimensions.get('screen').height * 0.75,
+
+    alignItems: 'flex-end',
+  },
 });
 export default InitStyles;

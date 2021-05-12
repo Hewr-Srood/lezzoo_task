@@ -11,6 +11,8 @@ import Header from '../components/Header';
 import colors from '../configs/colors';
 import { Picker } from '@react-native-picker/picker';
 import ProdutCard from './../components/ProductCard';
+import { v4 as uuidv4 } from 'uuid';
+
 const StoreScreen = () => {
   const store = useSelector((state) => state.store);
   const [category, setCategory] = useState('All');
@@ -77,7 +79,7 @@ const StoreScreen = () => {
               const index = 2 * i;
               return [data[index], data[index + 1]];
             }}
-            keyExtractor={(item) => item.id}
+            keyExtractor={uuidv4}
           />
         </>
       )}

@@ -6,5 +6,6 @@ const colors = {
   red: '#EE3E54',
   green: '#65A637',
   blue: '#2196F3',
+  serenity: '#C4DBE0',
 };
 export default colors;

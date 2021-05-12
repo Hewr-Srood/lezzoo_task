@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import colors from './../configs/colors';
 import { useDispatch } from 'react-redux';
-import { addToBasket, openStore } from '../Redux/actions';
+import { addToBasket } from '../Redux/actions';
 import { useSelector } from 'react-redux';
 
 const ProductCard = ({ item }) => {
@@ -74,7 +74,7 @@ const ProductCard = ({ item }) => {
           </View>
           <View style={styles.content}>
             <View style={'wrapper'}>
-              <Text style={styles.subtitile}>Price: {item.price}</Text>
+              <Text style={styles.subtitile}>Price: {item.price}$</Text>
             </View>
           </View>
         </TouchableOpacity>

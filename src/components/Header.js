@@ -1,19 +1,27 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import colors from '../configs/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/core';
 
-const Header = () => {
+const Header = ({ subtitle }) => {
   const items = useSelector((state) => state.items);
-  console.log(items);
+  const navigation = useNavigation();
   return (
     <View style={styles.header}>
       <View>
         <Text style={styles.headerText}>Find The Best Clothes</Text>
         <Text style={styles.headerSubText}>In your favorite store</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Basket')}>
         <View style={styles.iconContainer}>
           <View style={styles.bage}>
             <Text style={styles.bageText}>{items.length.toString()}</Text>
@@ -29,7 +37,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 15,
-    marginTop: 60,
+    height: Dimensions.get('screen').height * 0.1,
+    paddingTop: 10,
   },
   headerText: {
     fontSize: 24,
@@ -40,6 +49,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: colors.grey,
+  },
+  subtitle: {
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   iconContainer: {
     width: 34,

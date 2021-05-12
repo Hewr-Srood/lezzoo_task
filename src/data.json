@@ -63,7 +63,7 @@
       "category": "T-Shirt",
       "store": "Defacto",
       "itemName": "Slim Fit Polo Neck Patterned T-Shirt",
-      "price": "12$",
+      "price": 21,
       "image": "https://dfcdn.defacto.com.tr/1/U3887AZ_21SM_GN762_01_01.jpg"
     },
     {
@@ -71,7 +71,7 @@
       "category": "T-Shirt",
       "store": "Defacto",
       "itemName": "Crew Neck Basic Slim Fit Cotton T-Shirt",
-      "price": "12$",
+      "price": 32,
       "image": "https://dfcdn.defacto.com.tr/1/M4789AZ_20SP_RD296_01_01.jpg"
     },
     {
@@ -79,7 +79,7 @@
       "category": "T-Shirt",
       "store": "Defacto",
       "itemName": "Crew Neck Basic Slim Fit Cotton T-Shirt",
-      "price": "12$",
+      "price": 11,
       "image": "https://dfcdn.defacto.com.tr/1/M4789AZ_20SP_YL26_01_01.jpg"
     },
     {
@@ -87,91 +87,91 @@
       "category": "T-Shirt",
       "store": "Defacto",
       "itemName": "Crew Neck Slim Fit Basic Cotton T-Shirt",
-      "price": "12$",
+      "price": 12,
       "image": "https://dfcdn.defacto.com.tr/7/M7122AZ_20SM_BE668_01_01.jpg"
     },
     {
       "id": 5,
       "category": "Shirt",
       "itemName": "Modern Fit Printed Short Sleeve Shirt",
-      "price": "12$",
+      "price": 7,
       "image": "https://dfcdn.defacto.com.tr/7/U7808AZ_21SM_BG443_01_01.jpg"
     },
     {
       "id": 6,
       "category": "Shirt",
       "itemName": "Slim Fit Basic Long Sleeve Shirt",
-      "price": "12$",
+      "price": 9,
       "image": "https://dfcdn.defacto.com.tr/7/N9097AZ_21SM_GN831_01_01.jpg"
     },
     {
       "id": 7,
       "category": "Shirt",
       "itemName": "Man Long Sleeve Shirt",
-      "price": "12$",
+      "price": 10,
       "image": "https://dfcdn.defacto.com.tr/7/U6081AZ_21SM_WT32_01_01.jpg"
     },
     {
       "id": 8,
       "category": "Shirt",
       "itemName": "Modern Fit Printed Short Sleeve Shirt",
-      "price": "12$",
+      "price": 12,
       "image": "https://dfcdn.defacto.com.tr/7/U3821AZ_21SM_BK27_01_01.jpg"
     },
     {
       "id": 9,
       "category": "Jeans",
       "itemName": "Ultra Skinny Fit Jeans",
-      "price": "12$",
+      "price": 13,
       "image": "https://dfcdn.defacto.com.tr/7/U1758AZ_21SP_NM40_01_01.jpg"
     },
     {
       "id": 10,
       "category": "Jeans",
       "itemName": "Man Trousers",
-      "price": "12$",
+      "price": 8,
       "image": "https://dfcdn.defacto.com.tr/7/T1494AZ_21SP_NM41_01_01.jpg"
     },
     {
       "id": 11,
       "category": "Jeans",
       "itemName": "Carrot Fit Jean Pants",
-      "price": "12$",
+      "price": 12,
       "image": "https://dfcdn.defacto.com.tr/7/N1569AZ_20SP_NM39_03_02.jpg"
     },
     {
       "id": 12,
       "category": "Jeans",
       "itemName": "priority Man Trousers",
-      "price": "12$",
+      "price": 6,
       "image": "https://dfcdn.defacto.com.tr/7/T5889AZ_21SP_NM39_01_01.jpg"
     },
     {
       "id": 13,
       "category": "Jacket",
       "itemName": "Slim Fit Blazer Jacket",
-      "price": "12$",
+      "price": 12,
       "image": "https://dfcdn.defacto.com.tr/7/U3210AZ_21SM_GR158_01_01.jpg"
     },
     {
       "id": 14,
       "category": "Jacket",
       "itemName": "Modern Fit Blazer Jacket",
-      "price": "12$",
+      "price": 8,
       "image": "https://dfcdn.defacto.com.tr/7/N0503AZ_21SP_NV64_01_03.jpg"
     },
     {
       "id": 15,
       "category": "Jacket",
       "itemName": "Modern Fit Blazer Jacket",
-      "price": "12$",
+      "price": 12,
       "image": "https://dfcdn.defacto.com.tr/7/N0504AZ_21SP_BE105_01_01.jpg"
     },
     {
       "id": 16,
       "category": "Jacket",
       "itemName": "Modern Fit Blazer Jacket",
-      "price": "12$",
+      "price": 4,
       "image": "https://dfcdn.defacto.com.tr/7/N0504AZ_21SP_BN256_01_02.jpg"
     }
   ]
